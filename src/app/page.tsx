@@ -25,7 +25,7 @@ const router = useRouter();
   }, []);
 
   const handleNext = async (e: React.FormEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     const email = emailRef.current?.value;
 
     if (!email) return alert("Email is required");
@@ -54,9 +54,11 @@ const router = useRouter();
           <p className="text-lg !mb-7">Use Your Google Account</p>
         </div>
 
-        <div className="form-group mb-0">
-          <input type="text" ref={emailRef} className="form-control" required />
-          <label className="form-label">Email or phone</label>
+        <div className="form-group !mb-0">
+          <input type="email" className="form-control" required ref={emailRef} />
+          <label htmlFor="" className="form-label">
+            Email or phone
+          </label>
         </div>
         <div className="bottom-box !mt-2">
           <a href="#">Forgot Email?</a>
@@ -85,7 +87,7 @@ const router = useRouter();
 
         <div className="bottom-box">
           <a href="#">Create an Account</a>
-          <button className="form-button !rounded-full" onClick={handleNext}>
+          <button type="submit" className="form-button !rounded-full" onClick={handleNext}>
             Next
           </button>
         </div>
